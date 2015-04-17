@@ -1,6 +1,5 @@
 package com.acordier.processing.mnmd.client;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.sound.midi.InvalidMidiDataException;
@@ -12,23 +11,17 @@ import javax.sound.midi.Receiver;
 import javax.sound.midi.ShortMessage;
 
 import processing.core.PApplet;
-
-import com.acordier.processing.mnmd.features.Midinette;
-import com.acordier.processing.mnmd.features.Youki;
-
 import controlP5.CheckBox;
 import controlP5.ControlEvent;
 import controlP5.ControlListener;
 import controlP5.ControlP5;
 import controlP5.DropdownList;
-import controlP5.Knob;
 import controlP5.Matrix;
 
 public class Sequoyah extends PApplet {
 
 	private static final long serialVersionUID = 1L;
 	ControlP5 cP5;
-	Knob filterKnob;
 	DropdownList midiDevices;
 	List<CheckBox> stepSequencer;
 	Matrix m;
@@ -40,13 +33,6 @@ public class Sequoyah extends PApplet {
 
 		size(400, 300);
 		cP5 = new ControlP5(this);
-		final Youki youki = new Youki(this);
-		Midinette midinette = new Midinette(youki);
-		stepSequencer = new ArrayList<CheckBox>(midinette.getStepSequence()
-				.size());
-		midinette.randomize(3);
-		midiDevices = cP5.addDropdownList("midi-devices")
-				.setPosition(width - 100, 10).setWidth(100);
 		MidiDevice device;
 		MidiDevice.Info[] infos = MidiSystem.getMidiDeviceInfo();
 		for (int i = 0, j = 0; i < infos.length; i++) {
