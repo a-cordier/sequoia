@@ -49,9 +49,9 @@ public class SequoiaControlledView extends PApplet {
 		
 		tempoBox = new SequoiaNumberbox.Builder("tempo").setPosition(0, 0).setDimensions(50, 20).build(cP5);
 		
-		Midinette midinette = new Midinette();
-		midinette.randomize(3);
-		midinette.play(true);
+//		Midinette midinette = new Midinette();
+//		midinette.randomize(3);
+//		midinette.play(true);
 	}
 
 	public static MidiDevice getMidiOutDevice(String name) {
@@ -92,5 +92,7 @@ public class SequoiaControlledView extends PApplet {
 	
 	public void stepSeq(int i, int j){
 	}
-
+	
+	/** just to get rid of the no such method exception error */
+	public void matrix(int a, int b){}
 }

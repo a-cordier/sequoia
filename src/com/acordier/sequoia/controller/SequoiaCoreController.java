@@ -42,8 +42,7 @@ public class SequoiaCoreController {
 		return MidiBroker.getMidiOutputDevice(name);
 	}
 
-	public void playNote(int note) {
-		sequencer.playNote(note, 127);
-
+	public void trigger(int x){
+		sequencer.trigger(x);
 	}
 }

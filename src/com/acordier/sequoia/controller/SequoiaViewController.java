@@ -3,7 +3,6 @@ package com.acordier.sequoia.controller;
 import java.util.List;
 
 import javax.sound.midi.MidiDevice;
-import javax.sound.midi.MidiUnavailableException;
 
 import controlP5.ControlEvent;
 import controlP5.ControlListener;
@@ -44,7 +43,7 @@ public class SequoiaViewController {
 		control.addListener(new ControlListener() {
 			@Override
 			public void controlEvent(ControlEvent event) {
-				coreController.playNote(_control.getX(event.getValue()));
+				coreController.trigger(Matrix.getX(event.getValue()));
 			}
 		});
 		this.matrix = control;
