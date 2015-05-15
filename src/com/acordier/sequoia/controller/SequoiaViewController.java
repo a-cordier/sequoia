@@ -4,11 +4,15 @@ import java.util.List;
 
 import javax.sound.midi.MidiDevice;
 
+import com.acordier.sequoia.view.SequoiaControlledView;
+
 import controlP5.ControlEvent;
 import controlP5.ControlListener;
 import controlP5.DropdownList;
 import controlP5.Matrix;
 import controlP5.Numberbox;
+
+import static com.acordier.sequoia.model.SequoiaConstants.DEFAULT_TEMPO;
 
 public class SequoiaViewController {
 
@@ -39,7 +43,6 @@ public class SequoiaViewController {
 	}
 
 	public void bindMatrix(Matrix control) {
-		final Matrix _control = control;
 		control.addListener(new ControlListener() {
 			@Override
 			public void controlEvent(ControlEvent event) {
@@ -53,8 +56,10 @@ public class SequoiaViewController {
 		control.addListener(new ControlListener() {
 			@Override
 			public void controlEvent(ControlEvent event) {
+				matrix.setInterval((int) ((60.F / (event.getValue() * 4)) * 1000));
 				System.out.println(event.getValue() / 120 * 1000);
 			}
 		});
+		control.setValue(DEFAULT_TEMPO);
 	}
 }

@@ -19,6 +19,8 @@ import controlP5.DropdownList;
 import controlP5.Matrix;
 import controlP5.Numberbox;
 
+import static com.acordier.sequoia.model.SequoiaConstants.DEFAULT_TEMPO;
+
 public class SequoiaControlledView extends PApplet {
 
 	private static final long serialVersionUID = 1L;
@@ -41,17 +43,12 @@ public class SequoiaControlledView extends PApplet {
 		viewController.bindMidiOutputDeviceSelector(midiDevices);
 		
 
-		int tempo = 120;
-		int interval = (int) ((60.F / (tempo * 4)) * 1000);
-		matrix = new SequoiaMatrix.Builder("matrix").setPosition(0, height-200).setDimensions(width,  200).setInterval(interval).build(cP5).stop();
+
+		matrix = new SequoiaMatrix.Builder("matrix").setPosition(0, height-200).setDimensions(width,  200).setInterval(DEFAULT_TEMPO).build(cP5).stop();
 		viewController.bindMatrix(matrix);
 		stop = true;
-		
 		tempoBox = new SequoiaNumberbox.Builder("tempo").setPosition(0, 0).setDimensions(50, 20).build(cP5);
-		
-//		Midinette midinette = new Midinette();
-//		midinette.randomize(3);
-//		midinette.play(true);
+		viewController.bindTempo(tempoBox);
 	}
 
 	public static MidiDevice getMidiOutDevice(String name) {
