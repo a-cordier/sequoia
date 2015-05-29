@@ -11,31 +11,24 @@ import com.acordier.sequoia.model.SequoiaStepSequence;
 public class SequoiaSequencer {
 	
 	private MidiDevice midiOutputDevice;
-	private int tempo;
-	private int duration;
 	private SequoiaStepSequence steps;
+	private int octave;
 	
 	public SequoiaSequencer(){
 		this.steps = SequoiaStepSequence.getInstance();
+		this.octave = 3;
 	}
 	
-	public MidiDevice getMidiOutputDevice() {
-		return midiOutputDevice;
-	}
-
-	public void setMidiOutputDevice(MidiDevice midiOutputDevice) {
-		this.midiOutputDevice = midiOutputDevice;
-	}
 	
 	public void trigger(int x) {
 		try {
 			System.out.println("playing note");
 			SequoiaStep current = steps.get(x);
-			SequoiaStep previous = current.getPrevious();
-			midiOutputDevice.getReceiver().send(new ShortMessage(ShortMessage.NOTE_ON, current.getNote(), current.getVelocity()), -1);
-			if(previous.isEnabled()){
-				//midiOutputDevice.getReceiver().send(new ShortMessage(ShortMessage.NOTE_OFF, previous.getNote(), previous.getVelocity()), -1);
-			}
+//			SequoiaStep previous = current.getPrevious();
+			midiOutputDevice.getReceiver().send(new ShortMessage(ShortMessage.NOTE_ON, current.getNote() + 12 * octave , current.getVelocity()), -1);
+//			if(previous.isEnabled()){
+//				//midiOutputDevice.getReceiver().send(new ShortMessage(ShortMessage.NOTE_OFF, previous.getNote(), previous.getVelocity()), -1);
+//			}
 		} catch (MidiUnavailableException e) {
 			e.printStackTrace();
 		} catch (NullPointerException e) {
@@ -45,4 +38,19 @@ public class SequoiaSequencer {
 		}
 	}
 	
+	public int getOctave() {
+		return octave;
+	}
+
+	public void setOctave(int octave) {
+		this.octave = octave;
+	}
+	
+	public MidiDevice getMidiOutputDevice() {
+		return midiOutputDevice;
+	}
+
+	public void setMidiOutputDevice(MidiDevice midiOutputDevice) {
+		this.midiOutputDevice = midiOutputDevice;
+	}
 }

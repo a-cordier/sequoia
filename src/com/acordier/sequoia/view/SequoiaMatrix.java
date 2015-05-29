@@ -12,7 +12,6 @@ import controlP5.Matrix;
 public class SequoiaMatrix extends Matrix {
 	
 	private SequoiaStepSequence steps;
-	private int octave;
 	
 	private SequoiaMatrix(Builder builder) {
 		super(builder.cP5, builder.name);
@@ -24,7 +23,6 @@ public class SequoiaMatrix extends Matrix {
 		this.setColorBackground(new Color(120, 120, 120).getRGB());
 		this.setBackground(new Color(40, 40, 40).getRGB());
 		steps = SequoiaStepSequence.getInstance();
-		octave = 3;
 	}
 
 	@Override
@@ -60,7 +58,7 @@ public class SequoiaMatrix extends Matrix {
 					_myCells[tX][tY] = isMarkerActive ? 0 : 1;
 					if(!isMarkerActive) {
 						steps.get(tX).enable();
-						steps.get(tX).setNote((11 - tY) + 12 * octave);
+						steps.get(tX).setNote((11 - tY));
 					} else {
 						steps.get(tX).disable();
 					}
@@ -71,6 +69,7 @@ public class SequoiaMatrix extends Matrix {
 		}
 		return this;
 	}
+	
 
 	public static class Builder {
 

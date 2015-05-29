@@ -1,7 +1,5 @@
 package com.acordier.sequoia.model;
 
-import javax.sound.midi.InvalidMidiDataException;
-import javax.sound.midi.ShortMessage;
 
 
 public class SequoiaStep {
@@ -10,8 +8,7 @@ public class SequoiaStep {
 	private int note;
 	private boolean enabled;
 	private SequoiaStep previous;
-	private ShortMessage noteOnMessage;
-	private ShortMessage noteOffMessage;
+
 
 	public SequoiaStep(int velocity, boolean set) {
 		this.enabled = set;

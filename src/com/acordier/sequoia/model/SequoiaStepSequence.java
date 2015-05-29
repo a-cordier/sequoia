@@ -1,5 +1,6 @@
 package com.acordier.sequoia.model;
 
+import java.util.NoSuchElementException;
 import java.util.Random;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Random;
  * @author anton
  *
  */
-public class SequoiaStepSequence {
+public class SequoiaStepSequence implements Iterable<SequoiaStep> {
 
 	private SequoiaStep[] steps;
 	private Random random;
@@ -19,6 +20,7 @@ public class SequoiaStepSequence {
 		steps = new SequoiaStep[16];
 		feed();
 	}
+	
 	
 	public static SequoiaStepSequence getInstance(){
 		if(instance==null){
@@ -59,8 +61,39 @@ public class SequoiaStepSequence {
 		return steps[i];
 	}
 	
-
+	public SequoiaStep[] getSteps(){
+		return steps;
+	}
 	
+	@Override
+	public java.util.Iterator<SequoiaStep> iterator() {
+		return new Iterator<SequoiaStep>(this.steps);
+	}
+	
+
+	private class Iterator<T> implements java.util.Iterator<T> {
+		  private T array[];
+		  private int pos = 0;
+
+		  public Iterator(T[] steps) {
+		    array = steps;
+		  }
+
+		  public boolean hasNext() {
+		    return pos < array.length;
+		  }
+
+		  public T next() throws NoSuchElementException {
+		    if (hasNext())
+		      return array[pos++];
+		    else
+		      throw new NoSuchElementException();
+		  }
+
+		  public void remove() {
+		    throw new UnsupportedOperationException();
+		  }
+		}
 	
 	
 	

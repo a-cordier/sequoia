@@ -45,4 +45,12 @@ public class SequoiaCoreController {
 	public void trigger(int x){
 		sequencer.trigger(x);
 	}
+	
+	public void setOctave(int octave) {
+		sequencer.setOctave(octave);
+	}
+	
+	public int getOctave() {
+		return sequencer.getOctave();
+	}
 }
