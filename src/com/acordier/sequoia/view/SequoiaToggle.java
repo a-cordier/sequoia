@@ -4,18 +4,17 @@ import processing.core.PImage;
 
 import com.acordier.sequoia.common.Images;
 
-import controlP5.Bang;
+import controlP5.Button;
 import controlP5.ControlP5;
 
-public class SequoiaBang extends Bang {
-
-	private PImage[]images;
+public class SequoiaToggle extends Button {
 	
-	private SequoiaBang(Builder builder){
+	PImage[] images;
+	
+	private SequoiaToggle(Builder builder){
 		super(builder.cP5, builder.name);
 		this.setPosition(builder.x, builder.y);
-		this.setWidth(builder.w);
-		this.setHeight(builder.h);
+		// Replace shapes by images if any
 		if(builder.images!=null){
 			this.images = new PImage[3];
 			for(int i = 0; i < builder.images.length; i++){
@@ -37,8 +36,21 @@ public class SequoiaBang extends Bang {
 		     .updateSize();
 		}
 		
+		this.setSwitch(true);
 	}
 	
+	public void toggle(){
+		if(isOn()){
+			setOff();
+		}else { 
+			setOn();
+		}
+	}
+
+	/*
+	 * @author anton
+	 * will build a preconfigured SequoiaToggle
+	 */
 	public static class Builder {
 		
 		private ControlP5 cP5;
@@ -48,6 +60,8 @@ public class SequoiaBang extends Bang {
 		private String[]images;
 		
 		public Builder(String name) {
+			this.w=-1;
+			this.h=-1;
 			this.name = name;
 			
 		}
@@ -61,6 +75,7 @@ public class SequoiaBang extends Bang {
 		public Builder setDimensions(int w, int h){
 			this.w = w;
 			this.h = h;
+	
 			return this;		
 		}
 		
@@ -69,11 +84,11 @@ public class SequoiaBang extends Bang {
 			return this;
 		}
 		
-		
-		public SequoiaBang build(ControlP5 cP5) {
+		public SequoiaToggle build(ControlP5 cP5) {
 			this.cP5 = cP5;
-			return new SequoiaBang(this);
+			return new SequoiaToggle(this);
 		}
+		
 	
 	}
 }

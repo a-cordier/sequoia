@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import processing.core.PApplet;
 
+import com.acordier.sequoia.common.Colors;
 import com.acordier.sequoia.model.SequoiaStepSequence;
 
 import controlP5.ControlP5;
@@ -15,14 +16,17 @@ public class SequoiaMatrix extends Matrix {
 	
 	private SequoiaMatrix(Builder builder) {
 		super(builder.cP5, builder.name);
-		this.setPosition(builder.x, builder.y);
-		this.setSize(builder.w, builder.h);
+		this.setPosition(builder.x + builder.m * 2, builder.y+builder.m);
+		this.setSize(builder.w-builder.m, builder.h);
 		this.setInterval(builder.i);
 		this.setGrid(16, 12);
 		this.setMode(ControlP5.MULTIPLES);
-		this.setColorBackground(new Color(120, 120, 120).getRGB());
-		this.setBackground(new Color(40, 40, 40).getRGB());
+		this.setColorBackground(Colors.color(255,255,255));
+		this.setBackground(Colors.color(147,177,198));
+		//this.setBackground(Colors.color(236,88,58));
+		this.getCaptionLabel().setVisible(false);
 		steps = SequoiaStepSequence.getInstance();
+		new SequoiaNoteScale.Builder("scale").setMatrix(this).setPosition(0, builder.y + 10).build(builder.cP5);
 	}
 
 	@Override
@@ -78,6 +82,7 @@ public class SequoiaMatrix extends Matrix {
 		private float x, y;
 		private int w, h;
 		private int i;
+		private int m; // without this margin we get a stripe on the bottom
 
 		public Builder(String name) {
 			this.name = name;
@@ -98,6 +103,11 @@ public class SequoiaMatrix extends Matrix {
 
 		public Builder setInterval(int i) {
 			this.i = i;
+			return this;
+		}
+		
+		public Builder setMargin(int m){
+			this.m = m;
 			return this;
 		}
 

@@ -1,19 +1,25 @@
 package com.acordier.sequoia.view;
 
-import com.acordier.sequoia.common.Fonts;
-
 import controlP5.ControlP5;
-import controlP5.DropdownList;
+import controlP5.ListBox;
 
-public class SequoiaDropdown extends DropdownList	{
+public class SequoiaListBox extends ListBox {
 	
-	private SequoiaDropdown(Builder builder) {
+	private SequoiaListBox(Builder builder) {
 		super(builder.cP5, builder.name);
 		this.setWidth(builder.w);
 		this.setHeight(builder.h*2);
 		this.setPosition(builder.x, builder.y);
+		this.setOpen(true);
+		this.setItemHeight(15)
+        .setBarHeight(15);
+		this.setScrollbarVisible(true);
+
+		isBarVisible = false;
+
 	}
-	
+
+
 	public static class Builder {
 		
 		private ControlP5 cP5;
@@ -36,9 +42,9 @@ public class SequoiaDropdown extends DropdownList	{
 			this.h = h;
 			return this;		
 		}
-		public SequoiaDropdown build(ControlP5 cP5) {
+		public SequoiaListBox build(ControlP5 cP5) {
 			this.cP5 = cP5;
-			return new SequoiaDropdown(this);
+			return new SequoiaListBox(this);
 		}
 	}
 }
