@@ -75,12 +75,10 @@ public class SequoiaViewController {
 			public void controlEvent(ControlEvent event) {
 				int idx = ((int) event.getValue());
 				String deviceName = _control.getItem(idx).getName();
-				System.out.println(deviceName);
-				System.out.println(idx);
 				if(previousMidiOutputDeviceIdx>=0){
-					_control.getItem(previousMidiOutputDeviceIdx).setColorBackground(Colors.color(199,208,213));
+					_control.getItem(previousMidiOutputDeviceIdx).setColorBackground(ControlP5.getColor().getForeground());
 				}
-				_control.getItem(idx).setColorBackground(Colors.color(236,88,58));
+				_control.getItem(idx).setColorBackground(ControlP5.getColor().getActive());
 				coreController.setMidiOutputDevice(deviceName);
 				previousMidiOutputDeviceIdx = idx;
 			}
@@ -166,7 +164,6 @@ public class SequoiaViewController {
 		control.addListener(new ControlListener() {
 			@Override
 			public void controlEvent(ControlEvent event) {
-				System.out.println("click");
 				if(((Button)event.getController()).isOn()){
 					settingsFrame = view.addControlFrame("Settings", 300, 300);
 				}else {

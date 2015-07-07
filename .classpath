@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="C:/Users/anton/lib/processing/library/core.jar"/>
 	<classpathentry kind="lib" path="C:/Users/anton/lib/processing/library/jogl-all.jar"/>
 	<classpathentry kind="lib" path="C:/Users/anton/lib/processing/library/gluegen-rt.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/processing-commons"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

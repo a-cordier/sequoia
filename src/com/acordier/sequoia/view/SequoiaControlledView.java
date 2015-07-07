@@ -15,7 +15,6 @@ import com.acordier.sequoia.common.Colors;
 import com.acordier.sequoia.common.Fonts;
 import com.acordier.sequoia.controller.SequoiaViewController;
 
-import controlP5.ControlFont;
 import controlP5.ControlP5;
 import controlP5.Matrix;
 import controlP5.Textfield;
@@ -41,10 +40,12 @@ public class SequoiaControlledView extends PApplet {
 		size(400, 300);
 		frame.setResizable(false);
 		cP5 = new ControlP5(this);
-		cP5.setColorActive(color(236, 88, 58));
-		cP5.setColorBackground(color(4, 48, 92));
-		cP5.setColorForeground(color(199, 208, 213));
 		viewController = new SequoiaViewController(this);
+		
+		cP5.setColorBackground(Colors.color(147,177,198));
+		cP5.setColorForeground(Colors.color(199,208,213));
+		cP5.setColorActive(Colors.color(134, 209, 64)); // variante
+		
 
 		font = Fonts.loadFont("coolvetica.ttf", 40);
 		textFont(font);
@@ -155,7 +156,6 @@ public class SequoiaControlledView extends PApplet {
 		frame.setVisible(true);
 		frame.addWindowListener(new WindowAdapter() {
 	        public void windowClosing(WindowEvent we) {
-	        	System.out.println("dispose");
 	        	we.getWindow().dispose();
 	        	settingsBtn.setOff();
 	         }
@@ -196,12 +196,12 @@ public class SequoiaControlledView extends PApplet {
 			Textfield midiOutDevicesLabel = _cP5.addTextfield("Midi out setting label").setPosition(20, 20);
 			midiOutDevicesLabel.setText("Available midi out devices");
 			midiOutDevicesLabel.setColor(255);
-			midiOutDevicesLabel.setColorBackground(Colors.color(174, 209, 64));
+			midiOutDevicesLabel.setColorBackground(ControlP5.getColor().getBackground());
 			
 			midiOutDevices = new SequoiaListBox.Builder("Midi out").setDimensions(200, 200).setPosition(20, 40)
 					.build(_cP5);
 			midiOutDevices.setColorBackground(Colors.color(199,208,213));
-			midiOutDevices.setColorForeground(Colors.color(236,88,59));
+			//midiOutDevices.setColorForeground(Colors.color(236,88,59));
 			parent.viewController.bindMidiOutputDeviceSelector(midiOutDevices);
 			
 		}

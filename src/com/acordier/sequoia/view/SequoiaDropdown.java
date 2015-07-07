@@ -1,7 +1,5 @@
 package com.acordier.sequoia.view;
 
-import com.acordier.sequoia.common.Fonts;
-
 import controlP5.ControlP5;
 import controlP5.DropdownList;
 

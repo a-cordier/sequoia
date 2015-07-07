@@ -1,7 +1,5 @@
 package com.acordier.sequoia.view;
 
-import java.awt.Color;
-
 import processing.core.PApplet;
 
 import com.acordier.sequoia.common.Colors;
@@ -23,7 +21,6 @@ public class SequoiaMatrix extends Matrix {
 		this.setMode(ControlP5.MULTIPLES);
 		this.setColorBackground(Colors.color(255,255,255));
 		this.setBackground(Colors.color(147,177,198));
-		//this.setBackground(Colors.color(236,88,58));
 		this.getCaptionLabel().setVisible(false);
 		steps = SequoiaStepSequence.getInstance();
 		new SequoiaNoteScale.Builder("scale").setMatrix(this).setPosition(0, builder.y + 10).build(builder.cP5);

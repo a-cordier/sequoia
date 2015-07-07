@@ -1,12 +1,9 @@
 package com.acordier.sequoia.view;
 
-import javax.swing.plaf.basic.BasicBorders.MarginBorder;
+import processing.core.PApplet;
 
 import com.acordier.sequoia.common.Fonts;
-import com.acordier.sequoia.view.SequoiaNoteScale.Builder;
-import com.jogamp.opengl.util.texture.spi.TextureWriter;
 
-import processing.core.PApplet;
 import controlP5.ControlP5;
 import controlP5.Numberbox;
 
@@ -66,7 +63,7 @@ public class SequoiaNumberBox extends Numberbox {
 		private String name;
 		private float x, y;
 		private int w, h;
-		private float marginLeft, marginTop, marginRight, marginBottom;
+		//private float marginLeft, marginTop, marginRight, marginBottom;
 		
 		public Builder(String name) {
 			this.name = name;	
@@ -84,14 +81,14 @@ public class SequoiaNumberBox extends Numberbox {
 			return this;		
 		}
 		
-		public Builder setCaptionMargins(float l, float t, float r, float b) {
-			this.marginLeft = l;
-			this.marginTop = t;
-			this.marginRight = r;
-			this.marginBottom = b;
-			return this;
-		}
-				
+//		public Builder setCaptionMargins(float l, float t, float r, float b) {
+//			this.marginLeft = l;
+//			this.marginTop = t;
+//			this.marginRight = r;
+//			this.marginBottom = b;
+//			return this;
+//		}
+			
 		public SequoiaNumberBox build(ControlP5 cP5) {
 			this.cP5 = cP5;
 			return new SequoiaNumberBox(this);

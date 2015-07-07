@@ -22,13 +22,8 @@ public class SequoiaSequencer {
 	
 	public void trigger(int x) {
 		try {
-			System.out.println("playing note");
 			SequoiaStep current = steps.get(x);
-//			SequoiaStep previous = current.getPrevious();
 			midiOutputDevice.getReceiver().send(new ShortMessage(ShortMessage.NOTE_ON, current.getNote() + 12 * octave , current.getVelocity()), -1);
-//			if(previous.isEnabled()){
-//				//midiOutputDevice.getReceiver().send(new ShortMessage(ShortMessage.NOTE_OFF, previous.getNote(), previous.getVelocity()), -1);
-//			}
 		} catch (MidiUnavailableException e) {
 			e.printStackTrace();
 		} catch (NullPointerException e) {

@@ -32,7 +32,6 @@ public class SequoiaNoteScale extends Canvas {
 		float vPos = builder.y;
 		for(int i = notes.length-1; i>-1; i--) {
 			if(!notes[i].contains("#")){
-				System.out.println(applet.getClass().getName());
 				applet.image(Images.loadImage("white.png", keySize, keySize), builder.x, vPos);
 			}else {
 							applet.image(Images.loadImage("black.png", keySize, keySize), builder.x, vPos);

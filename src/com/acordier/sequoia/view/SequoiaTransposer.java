@@ -1,20 +1,16 @@
 package com.acordier.sequoia.view;
 
-import com.sun.corba.se.impl.encoding.CodeSetConversion.BTCConverter;
-
+import static com.acordier.sequoia.model.SequoiaConstants.IMG_DOWN_ARROW_ACTIVE;
+import static com.acordier.sequoia.model.SequoiaConstants.IMG_DOWN_ARROW_DEFAULT;
+import static com.acordier.sequoia.model.SequoiaConstants.IMG_UP_ARROW_ACTIVE;
+import static com.acordier.sequoia.model.SequoiaConstants.IMG_UP_ARROW_DEFAULT;
+import static com.acordier.sequoia.model.SequoiaConstants.TRANSPOSER_DOWN_BTN_ID;
+import static com.acordier.sequoia.model.SequoiaConstants.TRANSPOSER_MONITOR_ID;
+import static com.acordier.sequoia.model.SequoiaConstants.TRANSPOSER_UP_BTN_ID;
 import controlP5.Bang;
 import controlP5.ControlP5;
 import controlP5.Group;
 import controlP5.Numberbox;
-import static com.acordier.sequoia.model.SequoiaConstants.TEMPO_DOWN_BTN_ID;
-import static com.acordier.sequoia.model.SequoiaConstants.TEMPO_UP_BTN_ID;
-import static com.acordier.sequoia.model.SequoiaConstants.TRANSPOSER_MONITOR_ID;
-import static com.acordier.sequoia.model.SequoiaConstants.TRANSPOSER_DOWN_BTN_ID;
-import static com.acordier.sequoia.model.SequoiaConstants.TRANSPOSER_UP_BTN_ID;
-import static com.acordier.sequoia.model.SequoiaConstants.IMG_DOWN_ARROW_DEFAULT;
-import static com.acordier.sequoia.model.SequoiaConstants.IMG_DOWN_ARROW_ACTIVE;
-import static com.acordier.sequoia.model.SequoiaConstants.IMG_UP_ARROW_DEFAULT;
-import static com.acordier.sequoia.model.SequoiaConstants.IMG_UP_ARROW_ACTIVE;
 
 public class SequoiaTransposer extends Group {
 	
