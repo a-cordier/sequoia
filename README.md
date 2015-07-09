@@ -5,6 +5,11 @@ little to no feature.
 
 ![](http://a-cordier.github.io/sequoia/img/sequoia.png)
 
+
+## download
+
+http://a-cordier.github.io/sequoia/jar/sequoia.jar
+
 ## dependencies
 
 ### External
@@ -25,11 +30,11 @@ https://github.com/a-cordier/minimidim
 
 http://a-cordier.github.io/sequoia/javadoc/
 
-## Global design
+## design
 
 ![](http://a-cordier.github.io/sequoia/diagrams/sequoia-mvc.png)
 
-## Upcoming Features
+## upcoming features
  
  - Handling patterns
  - Control over the number of steps
