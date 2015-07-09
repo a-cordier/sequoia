@@ -3,6 +3,16 @@
 For now this is just a tiny 16 step matrix midi sequencer with
 little to no feature. 
 
+## dependencies
+
+### External
+https://processing.org/
+http://www.sojamo.de/libraries/controlP5/
+
+### Internal
+https://github.com/a-cordier/processing-commons
+https://github.com/a-cordier/minimidim
+
 ## Javadoc
 
 http://a-cordier.github.io/sequoia/javadoc/
