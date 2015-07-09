@@ -3,6 +3,8 @@
 For now this is just a tiny 16 step matrix midi sequencer with
 little to no feature. 
 
+![](http://a-cordier.github.io/sequoia/img/sequoia.png)
+
 ## dependencies
 
 ### External
