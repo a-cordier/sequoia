@@ -2,7 +2,6 @@ package com.acordier.sequoia.view;
 
 import processing.core.PApplet;
 
-import com.acordier.sequoia.common.Colors;
 import com.acordier.sequoia.model.SequoiaStepSequence;
 
 import controlP5.ControlP5;
@@ -19,8 +18,8 @@ public class SequoiaMatrix extends Matrix {
 		this.setInterval(builder.i);
 		this.setGrid(16, 12);
 		this.setMode(ControlP5.MULTIPLES);
-		this.setColorBackground(Colors.color(255,255,255));
-		this.setBackground(Colors.color(147,177,198));
+		this.setColorBackground(builder.backgroundColor);
+		this.setBackground(ControlP5.getColor().getForeground());
 		this.getCaptionLabel().setVisible(false);
 		steps = SequoiaStepSequence.getInstance();
 		//new SequoiaNoteScale.Builder("scale").setMatrix(this).setPosition(0, builder.y + 10).build(builder.cP5);
@@ -76,6 +75,7 @@ public class SequoiaMatrix extends Matrix {
 
 		private ControlP5 cP5;
 		private String name;
+		private int backgroundColor;
 		private float x, y;
 		private int w, h;
 		private int i;
@@ -108,6 +108,11 @@ public class SequoiaMatrix extends Matrix {
 			return this;
 		}
 
+		public Builder setBackground(int rgb){
+			this.backgroundColor = rgb;
+			return this;
+		}
+		
 		public SequoiaMatrix build(ControlP5 cP5) {
 			this.cP5 = cP5;
 			return new SequoiaMatrix(this);

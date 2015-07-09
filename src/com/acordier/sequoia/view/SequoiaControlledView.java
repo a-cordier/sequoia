@@ -47,10 +47,14 @@ public class SequoiaControlledView extends PApplet {
 		size(400, 300);
 		frame.setResizable(false);
 		cP5 = new ControlP5(this);
-		viewController = new SequoiaViewController(this);
-		cP5.setColorBackground(Colors.color(147, 177, 198));
-		cP5.setColorForeground(Colors.color(199, 208, 213));
-		cP5.setColorActive(Colors.color(134, 209, 64)); // variante
+		viewController = new SequoiaViewController(this);	
+		/* colors . */
+		cP5.setColorBackground(Colors.color(114, 115, 127));
+		cP5.setColorForeground(Colors.color(199,208,213));
+		cP5.setColorActive(Colors.color(93, 178, 106));  // variante
+		int matrixBackgroundColor = Colors.color(127,118,121);
+		background(57,58,64);
+		
 		font = Fonts.loadFont("coolvetica.ttf", 40);
 		textFont(font);
 		int tempoWidth = (int) textWidth("2222");
@@ -65,7 +69,9 @@ public class SequoiaControlledView extends PApplet {
 		matrix = new SequoiaMatrix.Builder("matrix")
 				.setPosition(xPos, height - (height * 2 / 3))
 				.setDimensions(width, (height * 2 / 3)).setMargin(10)
-				.setInterval(DEFAULT_TEMPO).build(cP5).stop();
+				.setInterval(DEFAULT_TEMPO)
+				.setBackground(matrixBackgroundColor)
+				.build(cP5).stop();
 		noStroke();
 		viewController.bindMatrix(matrix);
 
@@ -119,13 +125,13 @@ public class SequoiaControlledView extends PApplet {
 
 	@Override
 	public void draw() {
-		background(245);
+		background(g.backgroundColor);
 		if (stop) {
 			matrix.pause();
 		} else
 			matrix.play();
 		// fill(255);
-		fill(134, 209, 64);
+		fill(ControlP5.getColor().getActive());
 		textSize(40);
 		text("Sequoia", 5, 35);
 		textSize(20);
@@ -217,7 +223,7 @@ public class SequoiaControlledView extends PApplet {
 
 			midiOutDevices = new SequoiaListBox.Builder("Midi out")
 					.setDimensions(200, 200).setPosition(20, 40).build(_cP5);
-			midiOutDevices.setColorBackground(Colors.color(199, 208, 213));
+			//midiOutDevices.setColorBackground(ControlP5.getColor().getBackground());
 			// midiOutDevices.setColorForeground(Colors.color(236,88,59));
 			int selectedIdx = parent.viewController.getPreviousMidiOutputDeviceIdx();
 			parent.viewController.bindMidiOutputDeviceSelector(midiOutDevices);

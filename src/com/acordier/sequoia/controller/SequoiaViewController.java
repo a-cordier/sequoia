@@ -12,7 +12,6 @@ import java.util.List;
 
 import javax.sound.midi.MidiDevice;
 
-import com.acordier.sequoia.common.Colors;
 import com.acordier.sequoia.view.SequoiaControlledView;
 import com.acordier.sequoia.view.SequoiaControlledView.ControlFrame;
 import com.acordier.sequoia.view.SequoiaToggle;
