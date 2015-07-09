@@ -182,4 +182,10 @@ public class SequoiaViewController {
 			}
 		});
 	}
+	
+	
+	public int getPreviousMidiOutputDeviceIdx() {
+		return previousMidiOutputDeviceIdx;
+	}
+
 }

@@ -14,6 +14,7 @@ public class SequoiaListBox extends ListBox {
 		this.setItemHeight(15)
         .setBarHeight(15);
 		this.setScrollbarVisible(true);
+		this.getColor().setForeground(ControlP5.getColor().getActive());
 
 		isBarVisible = false;
 

@@ -23,7 +23,7 @@ public class SequoiaSequencer {
 	public void trigger(int x) {
 		try {
 			SequoiaStep current = steps.get(x);
-			midiOutputDevice.getReceiver().send(new ShortMessage(ShortMessage.NOTE_ON, current.getNote() + 12 * octave , current.getVelocity()), -1);
+			midiOutputDevice.getReceiver().send(new ShortMessage(ShortMessage.NOTE_ON, 4, current.getNote() + 12 * octave , current.getVelocity()), -1 );
 		} catch (MidiUnavailableException e) {
 			e.printStackTrace();
 		} catch (NullPointerException e) {

@@ -23,7 +23,7 @@ public class SequoiaMatrix extends Matrix {
 		this.setBackground(Colors.color(147,177,198));
 		this.getCaptionLabel().setVisible(false);
 		steps = SequoiaStepSequence.getInstance();
-		new SequoiaNoteScale.Builder("scale").setMatrix(this).setPosition(0, builder.y + 10).build(builder.cP5);
+		//new SequoiaNoteScale.Builder("scale").setMatrix(this).setPosition(0, builder.y + 10).build(builder.cP5);
 	}
 
 	@Override
