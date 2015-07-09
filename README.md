@@ -6,12 +6,18 @@ little to no feature.
 ## dependencies
 
 ### External
+
 https://processing.org/
+
 http://www.sojamo.de/libraries/controlP5/
 
+
 ### Internal
+
 https://github.com/a-cordier/processing-commons
+
 https://github.com/a-cordier/minimidim
+
 
 ## Javadoc
 
